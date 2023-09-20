@@ -144,6 +144,6 @@ exports.seed = async function (knex) {
   ]
 
   await knex('users').del() // delete all rows
-  await knex('users').raw('ALTER SEQUENCE users_id_seq RESTART WITH 1') // reset sequence back to 1
+  await knex.raw('ALTER SEQUENCE users_id_seq RESTART WITH 1') // reset sequence back to 1
   await knex('users').insert(fakeUsers)
 }
