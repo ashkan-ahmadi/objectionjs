@@ -1,5 +1,11 @@
 const { Knex } = require('knex')
+const { Model } = require('objection')
 
 const config = require('./knexfile')
 
-module.exports = Knex(config)
+const knex = Knex(config)
+
+// Give the knex instance to Objection
+Model.knex(knex)
+
+module.exports = knex
