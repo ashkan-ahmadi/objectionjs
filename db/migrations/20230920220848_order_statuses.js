@@ -1,11 +1,16 @@
 exports.up = async function (knex) {
   await knex.schema.createTable('order_statuses', function (table) {
-    table.increments('id').primary() // Auto-incrementing primary key
+    // Auto-incrementing primary key
+    table.increments('id').primary()
+
+    // Status column with names of statuses (e.g. pending, completed, failed)
     table.string('status').notNullable()
-    table.timestamps(true, true) // Created_at and updated_at timestamps
+
+    // created_at and updated_at timestamps
+    table.timestamps(true, true)
   })
 }
 
 exports.down = async function (knex) {
-  await knex.schema.dropTable('order_statuses')
+  await knex.schema.dropTableIfExists('order_statuses')
 }
