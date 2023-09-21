@@ -1,5 +1,5 @@
 exports.seed = async function (knex) {
-  // fake products built using https://www.mockaroo.com/
+  // fake data built using https://www.mockaroo.com/
   const data = [
     {
       name: 'Apple iPhone 14 Pro',

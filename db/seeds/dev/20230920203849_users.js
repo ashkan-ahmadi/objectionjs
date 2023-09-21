@@ -1,5 +1,5 @@
 exports.seed = async function (knex) {
-  // fake users built using https://www.mockaroo.com/
+  // fake data built using https://www.mockaroo.com/
   const data = [
     {
       email: 'ashkan.ahmadi88@gmail.com',

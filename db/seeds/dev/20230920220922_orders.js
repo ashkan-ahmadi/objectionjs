@@ -1,6 +1,5 @@
 exports.seed = async function (knex) {
-  // return
-  // fake orders built using https://www.mockaroo.com/
+  // fake data built using https://www.mockaroo.com/
   const data = [
     { quantity: 8, price: 678.37, subtotal: 5426.96, discount: 13, total: 5413.96, date: '2023-01-12 05:34:10', user_id: 12, product_id: 3, status_id: 3 },
     { quantity: 6, price: 445.65, subtotal: 2673.9, discount: 0, total: 2673.9, date: '2022-12-22 21:50:25', user_id: 9, product_id: 9, status_id: 8 },
