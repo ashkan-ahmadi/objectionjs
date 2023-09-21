@@ -1,4 +1,5 @@
 const env = require('../env.json')
+const { knexSnakeCaseMappers } = require('objection')
 
 module.exports = {
   client: 'pg',
@@ -36,12 +37,17 @@ module.exports = {
   },
   seeds: {
     // they run alphabetically, unlike migrations
-    directory: './seeds/dev', // default: './seeds/'
+    directory: env?.db?.seedsDir || './seeds/dev',
   },
 
   migrations: {
     tableName: 'knex_migrations',
   },
+
+  // converting snake_case to camelCase automatically
+  // https://vincit.github.io/objection.js/recipes/snake-case-to-camel-case-conversion.html
+  ...knexSnakeCaseMappers(),
+
   // connection: 'postgres://sf:abc@localhost:5432/studentfy'
   // searchPath: ['knex', 'public'],
 }
