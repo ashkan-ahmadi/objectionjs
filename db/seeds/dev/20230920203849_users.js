@@ -1,12 +1,13 @@
 exports.seed = async function (knex) {
   // fake users built using https://www.mockaroo.com/
-  const fakeUsers = [
+  const data = [
     {
-      email: 'lnaerup0@yelp.com',
+      email: 'ashkan.ahmadi88@gmail.com',
       password: '$2a$04$ctPIsu7lC3d6m10lFaY.YO8xTazvnfABUAHD4NfbegspBP7yp6ccG',
-      first_name: 'Levin',
-      last_name: 'Naerup',
-      is_active: false,
+      first_name: 'Ashkan',
+      last_name: 'Ahmadi',
+      is_active: true,
+      role_id: 1,
     },
     {
       email: 'dyaldren1@answers.com',
@@ -14,6 +15,7 @@ exports.seed = async function (knex) {
       first_name: 'Deedee',
       last_name: 'Yaldren',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'vanfonsi2@diigo.com',
@@ -21,6 +23,7 @@ exports.seed = async function (knex) {
       first_name: 'Viviana',
       last_name: 'Anfonsi',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'dnorth3@hostgator.com',
@@ -28,6 +31,7 @@ exports.seed = async function (knex) {
       first_name: 'Derrek',
       last_name: 'North',
       is_active: true,
+      role_id: 4,
     },
     {
       email: 'valdred4@t-online.de',
@@ -35,6 +39,7 @@ exports.seed = async function (knex) {
       first_name: 'Vinnie',
       last_name: 'Aldred',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'dslade5@t.co',
@@ -42,6 +47,7 @@ exports.seed = async function (knex) {
       first_name: 'Darelle',
       last_name: 'Slade',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'wdewitt6@networkadvertising.org',
@@ -49,6 +55,7 @@ exports.seed = async function (knex) {
       first_name: 'Wynn',
       last_name: 'De Witt',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'mflann7@google.fr',
@@ -56,6 +63,7 @@ exports.seed = async function (knex) {
       first_name: 'Merna',
       last_name: 'Flann',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'ucurtain8@ed.gov',
@@ -63,6 +71,7 @@ exports.seed = async function (knex) {
       first_name: 'Uta',
       last_name: 'Curtain',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'mdeavenell9@csmonitor.com',
@@ -70,6 +79,7 @@ exports.seed = async function (knex) {
       first_name: 'Moses',
       last_name: 'De Avenell',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'erochforda@theglobeandmail.com',
@@ -77,6 +87,7 @@ exports.seed = async function (knex) {
       first_name: 'Ezekiel',
       last_name: 'Rochford',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'gsealb@blogtalkradio.com',
@@ -84,6 +95,7 @@ exports.seed = async function (knex) {
       first_name: 'Gnni',
       last_name: 'Seal',
       is_active: true,
+      role_id: 4,
     },
     {
       email: 'astrassec@ow.ly',
@@ -91,6 +103,7 @@ exports.seed = async function (knex) {
       first_name: 'Abdul',
       last_name: 'Strasse',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'yhugginsd@cmu.edu',
@@ -98,6 +111,7 @@ exports.seed = async function (knex) {
       first_name: 'Yale',
       last_name: 'Huggins',
       is_active: true,
+      role_id: 4,
     },
     {
       email: 'wschmuhle@businessweek.com',
@@ -105,6 +119,7 @@ exports.seed = async function (knex) {
       first_name: 'Whitaker',
       last_name: 'Schmuhl',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'rmilburnf@ca.gov',
@@ -112,6 +127,7 @@ exports.seed = async function (knex) {
       first_name: 'Rex',
       last_name: 'Milburn',
       is_active: true,
+      role_id: 4,
     },
     {
       email: 'mcluseg@ocn.ne.jp',
@@ -119,6 +135,7 @@ exports.seed = async function (knex) {
       first_name: 'Meris',
       last_name: 'Cluse',
       is_active: true,
+      role_id: 4,
     },
     {
       email: 'vjergerh@163.com',
@@ -126,6 +143,7 @@ exports.seed = async function (knex) {
       first_name: 'Viki',
       last_name: 'Jerger',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'lhaldini@google.it',
@@ -133,6 +151,7 @@ exports.seed = async function (knex) {
       first_name: 'Lezlie',
       last_name: 'Haldin',
       is_active: false,
+      role_id: 4,
     },
     {
       email: 'gisenorj@dion.ne.jp',
@@ -140,10 +159,11 @@ exports.seed = async function (knex) {
       first_name: 'Grace',
       last_name: 'Isenor',
       is_active: false,
+      role_id: 4,
     },
   ]
 
   await knex('users').del() // delete all rows
   await knex.raw('ALTER SEQUENCE users_id_seq RESTART WITH 1') // reset sequence back to 1
-  await knex('users').insert(fakeUsers)
+  await knex('users').insert(data)
 }

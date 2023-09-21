@@ -5,7 +5,9 @@ exports.up = async function (knex) {
     table.integer('quantity', 10, 2).notNullable() // quantity of product
     table.decimal('price', 10, 2).notNullable() // price of individual product
     table.decimal('subtotal', 10, 2).notNullable() // subtotal (quantity * individual price)
+    table.decimal('discount', 10, 2).notNullable().defaultTo(0) // subtotal (quantity * individual price)
     table.decimal('total', 10, 2).notNullable() // Total order amount (up to 10 digits with 2 decimal places)
+    table.datetime('date').notNullable() // Total order amount (up to 10 digits with 2 decimal places)
     table.integer('user_id').unsigned().notNullable() // Foreign key to link orders to users
     table.integer('product_id').unsigned().notNullable() // Foreign key to link orders to products
     table.integer('status_id').unsigned().notNullable() // Foreign key to link orders to order_statuses

@@ -1,12 +1,13 @@
 exports.seed = async function (knex) {
   // fake products built using https://www.mockaroo.com/
-  const fakeProducts = [
+  const data = [
     {
       name: 'Apple iPhone 14 Pro',
       description: 'Praesent id massa id nisl venenatis lacinia. Aenean sit amet justo.',
       price: 474.47,
       stock_quantity: 545,
       is_available: false,
+      user_id: 1,
     },
     {
       name: 'Samsung S23 Ultra',
@@ -14,6 +15,7 @@ exports.seed = async function (knex) {
       price: 466.52,
       stock_quantity: 224,
       is_available: false,
+      user_id: 3,
     },
     {
       name: 'Oppo A2 Pro',
@@ -21,6 +23,7 @@ exports.seed = async function (knex) {
       price: 458.0,
       stock_quantity: 377,
       is_available: false,
+      user_id: 3,
     },
     {
       name: 'Apple iPhone X',
@@ -28,6 +31,7 @@ exports.seed = async function (knex) {
       price: 496.98,
       stock_quantity: 816,
       is_available: true,
+      user_id: 1,
     },
     {
       name: 'OnePlus 11',
@@ -35,6 +39,7 @@ exports.seed = async function (knex) {
       price: 476.97,
       stock_quantity: 21,
       is_available: false,
+      user_id: 3,
     },
     {
       name: 'Motorola Edge 40 Neo',
@@ -42,6 +47,7 @@ exports.seed = async function (knex) {
       price: 482.44,
       stock_quantity: 528,
       is_available: true,
+      user_id: 7,
     },
     {
       name: 'Huawei Mate 20 Pro',
@@ -49,6 +55,7 @@ exports.seed = async function (knex) {
       price: 460.86,
       stock_quantity: 513,
       is_available: false,
+      user_id: 2,
     },
     {
       name: 'Nokia 1100',
@@ -56,6 +63,7 @@ exports.seed = async function (knex) {
       price: 389.95,
       stock_quantity: 386,
       is_available: true,
+      user_id: 6,
     },
     {
       name: 'LG KP100',
@@ -63,6 +71,7 @@ exports.seed = async function (knex) {
       price: 450.34,
       stock_quantity: 719,
       is_available: true,
+      user_id: 1,
     },
     {
       name: 'Sony Ericsson K750',
@@ -70,10 +79,11 @@ exports.seed = async function (knex) {
       price: 424.77,
       stock_quantity: 391,
       is_available: true,
+      user_id: 1,
     },
   ]
 
   await knex('products').del() // delete all rows
   await knex.raw('ALTER SEQUENCE products_id_seq RESTART WITH 1') // reset sequence back to 1
-  await knex('products').insert(fakeProducts)
+  await knex('products').insert(data)
 }

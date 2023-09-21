@@ -6,7 +6,10 @@ exports.up = async function (knex) {
     table.string('first_name') // First name
     table.string('last_name') // Last name
     table.boolean('is_active').defaultTo(true) // User's active status (default: true)
+    table.integer('role_id').unsigned().notNullable() // Foreign key to link orders to users
     table.timestamps(true, true) // Created_at and updated_at timestamps
+
+    table.foreign('role_id').references('id').inTable('roles')
   })
 }
 
