@@ -14,6 +14,16 @@ class Users extends Model {
     }
   }
 
+  // Add datetime of now when inserting new row
+  $beforeInsert() {
+    this.createdAt = new Date()
+  }
+
+  // Add datetime of now when updating the row
+  $beforeUpdate() {
+    this.updatedAt = new Date()
+  }
+
   static get relationMappings() {
     const { Roles } = require('./roles')
 
@@ -31,6 +41,4 @@ class Users extends Model {
   }
 }
 
-module.exports = {
-  Users,
-}
+module.exports = Users

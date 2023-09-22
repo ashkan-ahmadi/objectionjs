@@ -4,14 +4,11 @@ setupDatabase()
 
 //////////////////////////////////
 
-// const getUsers = require('./functions/getUsers')
-// const getUserById = require('./functions/getUserById')
-const { Roles } = require('./db/models/roles')
-const { Users } = require('./db/models/users')
-const { isAdministrator } = require('./functions/isAdministrator')
+const { getUser, updateUser } = require('./functions/users')
+const Roles = require('./db/models/roles')
+const Users = require('./db/models/users')
+const Products = require('./db/models/products')
 
-const foo = async () => {
-  const user = await Users.query().findById(2).withGraphFetched('roles')
-}
+const foo = async () => {}
 
 foo()
