@@ -15,12 +15,19 @@ class Users extends Model {
   }
 
   static get relationMappings() {
-    /**
-     * Required here to avoid require loops ( Circular dependency ).
-     * https://vincit.github.io/objection.js/#relations
-     */
+    const { Roles } = require('./roles')
 
-    return {}
+    return {
+      // Use this relation when the source model has the foreign key
+      roles: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Roles,
+        join: {
+          from: 'users.roleId',
+          to: 'roles.id',
+        },
+      },
+    }
   }
 }
 
