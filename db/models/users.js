@@ -29,7 +29,7 @@ class Users extends Model {
 
     return {
       // Use this relation when the source model has the foreign key
-      roles: {
+      role: {
         relation: Model.BelongsToOneRelation,
         modelClass: Roles,
         join: {
