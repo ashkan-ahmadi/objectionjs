@@ -38,7 +38,7 @@ class Orders extends Model {
   static get relationMappings() {
     const Users = require('./users')
     const Products = require('./products')
-    // const Statuses = require('./status')
+    const OrderStatuses = require('./orderStatuses')
 
     return {
       // Use this relation when the source model has the foreign key
@@ -58,14 +58,14 @@ class Orders extends Model {
           to: 'products.id',
         },
       },
-      // status: {
-      //   relation: Model.BelongsToOneRelation,
-      //   modelClass: Statuses,
-      //   join: {
-      //     from: 'orders.statusId',
-      //     to: 'status.id',
-      //   },
-      // },
+      status: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: OrderStatuses,
+        join: {
+          from: 'orders.statusId', // column name can be camelcase
+          to: 'order_statuses.id', // table name has to be underscored
+        },
+      },
     }
   }
 }
