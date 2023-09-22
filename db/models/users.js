@@ -25,7 +25,7 @@ class Users extends Model {
   }
 
   static get relationMappings() {
-    const { Roles } = require('./roles')
+    const Roles = require('./roles')
 
     return {
       // Use this relation when the source model has the foreign key
