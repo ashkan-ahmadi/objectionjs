@@ -44,8 +44,8 @@ class Products extends Model {
         id: { type: 'integer' },
         name: { type: 'string', minLength: 1, maxLength: 255 },
         description: { type: 'string' },
-        price: { type: 'number', min: 0 },
-        stockQuantity: { type: 'integer', min: 0 },
+        price: { type: 'number' },
+        stockQuantity: { type: 'integer' },
         isAvailable: { type: 'boolean' },
         userId: { type: 'number' },
 
