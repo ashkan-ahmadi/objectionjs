@@ -55,7 +55,21 @@ class Products extends Model {
     }
   }
 
-  static relationMappings = {}
+  static get relationMappings() {
+    const Users = require('./users')
+
+    return {
+      // Use this relation when the source model has the foreign key
+      user: {
+        relation: Model.BelongsToOneRelation,
+        modelClass: Users,
+        join: {
+          from: 'products.userId',
+          to: 'users.id',
+        },
+      },
+    }
+  }
 }
 
 module.exports = Products
